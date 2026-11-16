@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>agent-receipts — 60s demo</title>
+<style>
+  :root { font-family: ui-sans-serif, system-ui, sans-serif; color: #111; background: #fafafa; }
+  body { max-width: 42rem; margin: 2rem auto; padding: 0 1rem; line-height: 1.45; }
+  h1 { font-size: 1.35rem; margin-bottom: .25rem; }
+  .sub { color: #555; margin-bottom: 1.5rem; }
+  .card { background: #fff; border: 1px solid #e5e5e5; border-radius: 10px; padding: 1rem 1.1rem; margin: .8rem 0; }
+  .label { font-size: .75rem; letter-spacing: .04em; text-transform: uppercase; color: #666; }
+  .bad { color: #b00020; font-weight: 600; }
+  .good { color: #0a7a32; font-weight: 600; }
+  code { font-size: .9em; background: #f1f1f1; padding: .1em .35em; border-radius: 4px; }
+  button { margin-top: .6rem; padding: .55rem 1rem; border-radius: 8px; border: 1px solid #222; background: #111; color: #fff; cursor: pointer; }
+  button:disabled { opacity: .5; cursor: default; }
+  .note { font-size: .85rem; color: #666; margin-top: 1.5rem; }
+</style>
+</head>
+<body>
+  <h1>Your agent said “done”. Was it?</h1>
+  <p class="sub">60-second local demo of <code>agent-receipts</code>. Nothing is deployed. No network calls.</p>
+
+  <div class="card">
+    <div class="label">Scene</div>
+    <p>Two hosts get the same capsule: write <code>report.txt</code> with the quarterly numbers.</p>
+  </div>
+
+  <div class="card" id="lazy">
+    <div class="label">Lazy host</div>
+    <p>Adapter returns ok. File never appears.</p>
+    <p>Receipt: <span class="bad">UNVERIFIED · READBACK_FAILED</span></p>
+    <p>Agent says “done” → audit: <span class="bad">FALSE_DONE</span></p>
+  </div>
+
+  <div class="card" id="honest">
+    <div class="label">Honest host</div>
+    <p>Adapter writes the bytes. Verifier reads them back.</p>
+    <p>Receipt: <span class="good">VERIFIED</span></p>
+    <p>Agent says “done” → audit: <span class="good">HONEST</span></p>
+  </div>
+
+  <div class="card">
+    <div class="label">Why this is the product</div>
+    <p>Same protocol across ChatGPT-Monday (hub) and satellite mouths. “Done” is a receipt, not a sentence. Commercial use pays royalty; non-commercial stays free (see package LICENSE + COMMERCIAL.md).</p>
+  </div>
+
+  <p class="note">Local only · 16 Nov 2026 · not published · not a live API. Run <code>npm test</code> and <code>npm run example</code> in <code>agent-receipts/</code> for the real machine check (11/11 observed locally).</p>
+</body>
+</html>
