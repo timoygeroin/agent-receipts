@@ -1,0 +1,15 @@
+{
+  "name": "agent-receipts",
+  "version": "0.1.0",
+  "description": "Receipts and readback for AI agents: an agent may only say 'done' when an independent check proves it.",
+  "type": "module",
+  "main": "src/index.mjs",
+  "exports": { ".": "./src/index.mjs" },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "example": "node examples/file-write.mjs"
+  },
+  "engines": { "node": ">=18" },
+  "license": "SEE LICENSE IN LICENSE",
+  "private": true
+}
